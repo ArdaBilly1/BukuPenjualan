@@ -23,6 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:hint="e.g Mamat"
+        android:background="@drawable/edittextstyle"
         android:id="@+id/txtNamaPelanggan"/>
 
     <TextView
@@ -40,6 +41,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:hint="e.g Flashdisk"
+        android:background="@drawable/edittextstyle"
         android:id="@+id/txtNamaBarang"/>
 
     <TextView
@@ -57,6 +59,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:hint="e.g 2"
+        android:background="@drawable/edittextstyle"
         android:id="@+id/txtJumlah"/>
 
     <TextView
@@ -73,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txvHarga"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/edittextstyle"
         android:hint="e.g 200000"
         android:id="@+id/txtHarga"/>
 
@@ -92,36 +96,46 @@
         app:layout_constraintTop_toBottomOf="@+id/txvTotal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/txtTotal"/>
+        android:id="@+id/txtTotal"
+        android:background="@drawable/edittextstyle"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:id="@+id/btnUbah"
+        android:layout_width="176dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txtTotal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/buttonstyle"
+        android:onClick="button_onClick"
         android:text="Ubah"
-        android:onClick="button_onClick"
-        android:id="@+id/btnUbah" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/btnUbah"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTotal" />
+
+    <Button
+        android:id="@+id/btnHapus"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/buttonstyle"
+        android:onClick="button_onClick"
         android:text="Hapus"
-        android:onClick="button_onClick"
-        android:id="@+id/btnHapus" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnUbah"
+        app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
 
     <Button
+        android:id="@+id/btnKembali"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/btnHapus"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/buttonstyle"
+        android:onClick="button_onClick"
+        android:text="Kembali"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Kembali"
-        android:onClick="button_onClick"
-        android:id="@+id/btnKembali" />
+        app:layout_constraintTop_toBottomOf="@+id/btnHapus" />
 
 </android.support.constraint.ConstraintLayout>

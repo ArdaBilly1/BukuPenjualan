@@ -26,6 +26,7 @@ public class DetailDataActivity extends AppCompatActivity {
     private Button btnHapus;
     private Button btnKembali;
     private String total;
+    private int jB, hrg, t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,23 @@ public class DetailDataActivity extends AppCompatActivity {
         this.initData();
         this.initComponents();
     }
+    public void proses(){
+        String jumlah = this.txtJumlah.getText().toString().trim();
+        String harga = this.txtHarga.getText().toString().trim();
+
+        this.jB = Integer.valueOf(jumlah);
+        this.hrg = Integer.valueOf(harga);
+        this.t = (this.jB * this.hrg);
+        this.txtTotal.setText(""+this.t);
+        total = String.valueOf(t);
+
+    }
 
     private void initData(){
         this.mPenjualan = new PenjualanModel(this);
         int selectedPenjualanId = this.getIntent().getIntExtra("selectedPenjualanId", -1);
         this.selectedPenjualan = this.mPenjualan.selectOne(selectedPenjualanId);
+
     }
 
     private void initComponents(){
@@ -57,6 +70,7 @@ public class DetailDataActivity extends AppCompatActivity {
         this.txtJumlah.setText(this.selectedPenjualan.getJumlah());
         this.txtHarga.setText(this.selectedPenjualan.getHarga());
         this.txtTotal.setText(this.selectedPenjualan.getTotal());
+        this.proses();
     }
 
     public void button_onClick(View view){
@@ -86,6 +100,7 @@ public class DetailDataActivity extends AppCompatActivity {
         this.selectedPenjualan.setNamaBarang(namaBarang);
         this.selectedPenjualan.setJumlah(jumlah);
         this.selectedPenjualan.setHarga(harga);
+        this.proses();
         this.selectedPenjualan.setTotal(total);
 
         this.mPenjualan.update(this.selectedPenjualan);

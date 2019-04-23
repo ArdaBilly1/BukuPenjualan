@@ -17,6 +17,7 @@ public class TambahData extends AppCompatActivity {
     private int t;
     private int jB;
     private int hrg;
+    private String total;
 
     //Komponen
     private EditText txtNamaPelanggan;
@@ -83,13 +84,24 @@ public class TambahData extends AppCompatActivity {
             this.finish();
         }
     }
+    public void proses(){
+        String jumlah = this.txtJumlah.getText().toString().trim();
+        String harga = this.txtHarga.getText().toString().trim();
+
+        this.jB = Integer.valueOf(jumlah);
+        this.hrg = Integer.valueOf(harga);
+        this.t = (this.jB * this.hrg);
+        this.txtTotal.setText(""+this.t);
+        total = String.valueOf(t);
+
+    }
 
     private void tambahData(){
         String namaPelanggan = this.txtNamaPelanggan.getText().toString();
         String namaBarang = this.txtNamaBarang.getText().toString();
         String jumlah = this.txtJumlah.getText().toString();
         String harga = this.txtHarga.getText().toString();
-        String total = this.txtTotal.getText().toString();
+        total = this.txtTotal.getText().toString();
 
         Penjualan penjualanbaru = new Penjualan();
         penjualanbaru.setNamaPelanggan(namaPelanggan);
@@ -105,13 +117,5 @@ public class TambahData extends AppCompatActivity {
         this.btnBatal.setText("Kembali");
     }
 
-    public void proses(){
-        String jumlah = this.txtJumlah.getText().toString().trim();
-        String harga = this.txtHarga.getText().toString().trim();
 
-        this.jB = Integer.valueOf(jumlah);
-        this.hrg = Integer.valueOf(harga);
-        this.t = (this.jB * this.hrg);
-        this.txtTotal.setText(""+this.t);
-    }
 }
